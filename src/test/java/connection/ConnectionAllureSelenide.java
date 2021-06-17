@@ -15,14 +15,10 @@ public class ConnectionAllureSelenide {
     @BeforeAll
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
         Configuration.startMaximized = true;
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-
         Configuration.browserCapabilities = capabilities;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
     }
@@ -30,12 +26,10 @@ public class ConnectionAllureSelenide {
     @AfterEach
     public void tearDown() throws InterruptedException {
         String sessionId = getSessionId();
-
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         closeWebDriver();
-
         Attach.addVideo(sessionId);
     }
 
