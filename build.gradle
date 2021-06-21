@@ -8,16 +8,17 @@ repositories {
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:5.20.3",
             "org.junit.jupiter:junit-jupiter-api:5.7.1",
             "com.github.javafaker:javafaker:1.0.2",
             "org.aspectj:aspectjweaver:1.9.6",
+            "org.aeonbits.owner:owner:1.0.12",
             "io.qameta.allure:allure-selenide:2.14.0"
     )
-    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.7.1",
-    "org.slf4j:slf4j-simple:1.7.30",
-    "org.slf4j:slf4j-api:1.7.30")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1",
+            "org.slf4j:slf4j-simple:1.7.30",
+            "org.slf4j:slf4j-api:1.7.30")
 }
 
 allure {
@@ -32,4 +33,14 @@ allure {
 
 test {
     useJUnitPlatform()
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
 }
