@@ -19,11 +19,11 @@ public class ConnectionAllureSelenide {
         Configuration.startMaximized = true;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("91.0");
+        //capabilities.setVersion("91.0");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = String.format("https://%s:%s@%s/#/",
+        Configuration.remote = String.format("https://%s:%s@%s/wd/hub/",
                 Credentials.credentials.getLogin(), Credentials.credentials.getPassword(), System.getProperty("url"));
     }
 
