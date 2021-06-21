@@ -30,7 +30,7 @@ public class FillingOutTheFormTest extends ConnectionAllureSelenide {
             picture = "1.png",
             currentAddress = "Earth st.",
             state = "Uttar Pradesh",
-            city = "Merrut";
+            city = "Agra";
 
     @Test
     void TeachingSubmitTest() {

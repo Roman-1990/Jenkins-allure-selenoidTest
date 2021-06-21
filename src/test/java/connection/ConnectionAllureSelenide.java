@@ -23,7 +23,7 @@ public class ConnectionAllureSelenide {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = String.format("https://%s:%s@%s/wd/hub/",
+        Configuration.remote = String.format("https://%s:%s@%s/#/",
                 Credentials.credentials.getLogin(), Credentials.credentials.getPassword(), System.getProperty("url"));
     }
 
